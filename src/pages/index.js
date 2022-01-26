@@ -1,10 +1,10 @@
 import React from 'react';
 import Layout from '../components/layouts/Layout'
 import { ChevronRightIcon } from '@heroicons/react/solid'
-import { navMenu, profilesMenu } from '../data/nav-menus'
 import SimpleCard from '../components/cards/SimpleCard'
 import { getInitials } from '../helpers/generals'
 import { useEffect, useState } from 'react'
+import { navMenu } from '../data/menus';
 
 export default function Home() {
   const [menu, setMenu] = useState([]);
@@ -29,14 +29,15 @@ export default function Home() {
                 <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                   Website that i used to store all my Nextjs component code. Please do not have high expectation about this website. Thanks for visits. 
                 </p>
-                <div className="mt-10 sm:mt-12 flex lg:grid lg:grid-cols-2 lg:gap-1">
+                <div className="mt-10 sm:mt-12 text-md font-medium text-white">What inside this website:</div>
+                <div className="mt-3 grid grid-cols-1 lg:grid-cols-2 lg:gap-1">
                   {menu.map((item, id) => {
                     console.log(item);
                     return (
                     <SimpleCard 
                       key={id.toString()}
                       bgColor={item.bgColor}
-                      initial={getInitials(item.name)} 
+                      icon={item.icon ?? getInitials(item.name)} 
                       title={item.name} 
                       subtitle={''} 
                       onClick={() => window.location = item.href}

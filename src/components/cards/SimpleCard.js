@@ -1,12 +1,12 @@
 import { ChevronRightIcon, DotsVerticalIcon } from "@heroicons/react/solid";
 
-export default function SimpleCard({bgColor="", initial="SC", title="Simple Card", subtitle="Example of Simple Card", onClick = () => {}, optionOnClick = () => {}, ...props}){
+export default function SimpleCard({bgColor="", icon="SC", title="Simple Card", subtitle="Example of Simple Card", onClick = () => {}, optionOnClick = () => {}, ...props}){
   return (
-    <div className={`flex shadow-sm rounded-md`}>
+    <div className={`flex shadow-sm rounded-md`} onClick={onClick}>
       <div
         className={`${bgColor} flex-shrink-0 flex items-center justify-center w-16 text-white text-md font-medium rounded-l-md`}
       >
-        {initial}
+        {icon}
       </div>
       <div className="flex-1 flex items-center justify-between border-t border-r border-b bg-gray-200 border-gray-200 rounded-r-md truncate">
         <div onClick={onClick} className="flex-1 px-4 py-2 text-sm truncate">
