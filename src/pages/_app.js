@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <>
             <Head>
-                <title>Enigma</title>
+                <title>My First Nextjs App</title>
                 <meta name="Description" content="APP" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 {/* <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="" /> */}
