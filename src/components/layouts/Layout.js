@@ -14,7 +14,7 @@ export default function Layout ({children, ...props}) {
     <>
       <div className="relative overflow-hidden">
         <Headers title="Popojitabal" navMenu={navMenu} rightMenu={rightNavMenu}/>
-        <main className="min-h-full">
+        <main className="-mt-10 pt-10 bg-gray-900 h-screen overflow-y-auto">
           {children}
         </main>
       </div>

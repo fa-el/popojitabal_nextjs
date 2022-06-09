@@ -6,7 +6,7 @@ import { componentMenu } from "../../data/menus";
 export default function Components({}){
   return (
     <Layout>
-      <div className="pt-10 bg-gray-900 min-h-full sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
+      <div className="pt-10 bg-gray-900 min-h-full sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-auto">
         <div className="mx-auto max-w-7xl lg:px-8">
           <div className="flex flex-row">
             <div className="lg:py-24">

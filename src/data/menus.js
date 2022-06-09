@@ -20,4 +20,5 @@ export const componentMenu = [
   { label: 'Layout', description: '', href: '#'},
   { label: 'Navigation', description: '', href: '#'},
   { label: 'Table', description: '', href: '#'},
+  { label: 'Print', description: 'My Print Components Example', href: '/components/prints'},
 ]
