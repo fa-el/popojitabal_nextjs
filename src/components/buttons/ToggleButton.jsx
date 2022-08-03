@@ -11,31 +11,26 @@ export default function ToggleButton({
     label = 'Swicth',
     value = false
 }) {
-    const [enabled, setEnabled] = useState(value)
 
-    useEffect(() => {
-        console.log('rendered')
-        toggle(enabled);
-    }, [enabled]);
 
     return (
         <div className={["h-full", className].join(' ')}>
             <Switch
             as='button'
-            checked={enabled}
-            onChange={setEnabled}
+            checked={value}
+            onChange={() => toggle(!value)}
             className={[
                 style.switch, 
-                enabled ? style.switchOn : style.switchOff
+                value ? style.switchOn : style.switchOff
             ].join(' ')}
             >
                 <span className="sr-only">{label}</span>
                 <span
                     className={[
                         style.handle, 
-                        enabled ? style.handleOn : style.handleOff
+                        value ? style.handleOn : style.handleOff
                     ].join(' ')}
-                >{enabled ? iconOn : iconOff}</span>
+                >{value ? iconOn : iconOff}</span>
             </Switch>
         </div>
     )

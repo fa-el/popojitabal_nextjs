@@ -1,16 +1,19 @@
 import { Popover, Transition } from "@headlessui/react";
 import { LightBulbIcon, MenuIcon, MoonIcon, XIcon } from "@heroicons/react/solid";
 import Image from "next/image";
-import { Fragment } from "react";
 import ImageLogo from "../../assets/image/logo.ico";
 import ToggleButton from "../buttons/ToggleButton";
 import {useTheme} from "next-themes";
-import PopoverButton from "../buttons/PopOverButton";
+import DropDownButton from "../buttons/DropdownButton";
+import { useRef } from "react";
+import { classNames } from "../../helpers/theme";
+import { theme } from "tailwindcss/stubs/defaultConfig.stub";
 
 export default function Headers({
   title="Workflow", 
   menus=[],
 }) {
+  const refDropDownButton = useRef();
   const {theme, setTheme} = useTheme();
 
   const changeTheme = (dark = false) => {
@@ -34,7 +37,7 @@ export default function Headers({
   }
   const Account = () => {
     return <div className={style.account}>
-      <PopoverButton buttonIcon={<MenuIcon height={20} className={''}/>}>
+      <DropDownButton ref={refDropDownButton} menuBtnIcon={<MenuIcon height={20}/>}>
         <div className={style.popover}>
           <div className={style.darkMode}>
             <span>Dark Mode</span>
@@ -47,7 +50,7 @@ export default function Headers({
             value={theme == 'dark'}/>
           </div>
         </div>
-      </PopoverButton>
+      </DropDownButton>
     </div>
   }
 
@@ -62,14 +65,15 @@ export default function Headers({
 }
 
 const style = {
-  navbar: "h-10 flex flex-row items-center",
-  logo: "flex flex-row items-center",
+  navbar: classNames("h-10 flex flex-row items-center",
+  theme == 'dark' ? 'bg-gray-800' : 'bg-gray-800 text-white'),
+  logo: "flex flex-row items-center cursor-pointer",
   logoImg: "h-full",
   logoTitle: "",
   navigation: "",
   navItem: "",
   account: "flex flex-row items-center ml-auto mr-3",
   popover: "w-full",
-  darkMode: "flex flex-row items-center",
+  darkMode: "flex flex-row items-center justify-between px-4 py-2",
   toggleButton: "",
 }

@@ -1,3 +1,3 @@
-export const arrayClassName = (stringClass) => {
-    // return classNames()
+export function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
 }
